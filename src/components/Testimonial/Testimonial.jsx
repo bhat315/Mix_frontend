@@ -3,7 +3,9 @@ import { Pagination, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import patientAvatar from "../../assets/images/patient-avatar.png";
+import patientAvatar from "../../assets/images/6.jpeg";
+import Avatar from "../../assets/images/4.jpeg";
+import avatar from "../../assets/images/1.png";
 import { HiStar } from "react-icons/hi";
 
 const Testimonial = () => {
@@ -63,7 +65,7 @@ const Testimonial = () => {
           <div className="review p-6 rounded-lg shadow-md transition-transform transform hover:scale-105">
             <div className="flex items-center gap-4">
               <img
-                src={patientAvatar}
+                src={Avatar}
                 alt="Patient Avatar"
                 className="w-16 h-16 rounded-full"
               />
@@ -90,7 +92,7 @@ const Testimonial = () => {
           <div className="review p-6 rounded-lg shadow-md transition-transform transform hover:scale-105">
             <div className="flex items-center gap-4">
               <img
-                src={patientAvatar}
+                src={avatar}
                 alt="Patient Avatar"
                 className="w-16 h-16 rounded-full"
               />
@@ -142,7 +144,7 @@ const Testimonial = () => {
           <div className="review p-6 rounded-lg shadow-md transition-transform transform hover:scale-105">
             <div className="flex items-center gap-4">
               <img
-                src={patientAvatar}
+                src={avatar}
                 alt="Patient Avatar"
                 className="w-16 h-16 rounded-full"
               />
