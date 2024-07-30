@@ -52,7 +52,7 @@ const Header = () => {
   const toggleMenu = () => menuRef.current.classList.toggle("show__menu");
 
   return (
-    <header className="header flex items-center bg-blue-50" ref={headerRef}>
+    <header className="header flex items-center" ref={headerRef}>
       <div className="container">
         <div className="flex items-center justify-between">
           {/* Logo */}
@@ -61,15 +61,15 @@ const Header = () => {
           </div>
           {/* ####### Menu ######## */}
           <div className="navigation" ref={menuRef} onClick={toggleMenu}>
-            <ul className="menu flex items-center gap-[3.7rem]">
+            <ul className="menu flex items-center gap-[2.7rem]">
               {navLinks.map((link, index) => (
                 <li key={index}>
                   <NavLink
                     to={link.path}
                     className={(navClass) =>
                       navClass.isActive
-                        ? "text-primaryColor text-[22px] leading-7 font-[600]"
-                        : "text-textColor text-[22px] leading-7 font-[500] hover:text-primaryColor"
+                        ? "text-primaryColor text-[16px] leading-7 font-[600]"
+                        : "text-textColor text-[16px] leading-7 font-[500] hover:text-primaryColor"
                     }
                   >
                     {link.display}
