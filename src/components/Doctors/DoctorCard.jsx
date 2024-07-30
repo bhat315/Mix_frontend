@@ -1,54 +1,81 @@
-import React from "react";
-import starIcon from "../../assets/images/Star.png";
-import { BsArrowRight } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import React from 'react'
+import starIcon from '../../assets/images/Star.png'
+import { BsArrowRight } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 
-const DoctorCard = ({ doctor }) => {
-  const { name, avgRating, photo, specialization, totalRating, experiences } =
-    doctor;
+const DoctorCard = ({doctor}) => {
+    const {
+        name,
+        avgRating,
+        photo,
+        specialty,
+        specialization,
+        totalRating,
+        totalPatients,
+        hospital,
+        experiences
+    } = doctor;
 
-  const roundedTotalRating = Math.round(totalRating);
+    
+
+    const roundedTotalRating = Math.round(totalRating);
 
   return (
-    <div className="p-4 doc shadow-md rounded-lg hover:shadow-lg transition-shadow duration-300">
-      <div className="overflow-hidden rounded-t-lg h-64">
-        <img
-          src={photo}
-          alt={name}
-          className="w-full h-64 object-contain rounded-md mb-4"
-        />
-      </div>
+    <div className='p-3 lg:p-5'>
+        <div>
+            <img src={photo}
+             alt="" className='w-full'/>
+        </div>
 
-      <div className="p-4 ">
-        <h2 className="text-xl font-semibold text-black mt-2">{name}</h2>
+        <h2 className='text-[18px] leading-[30px] lg:text-[26px] lg:leading-9
+        text-headingColor font-[700] mt-3 lg:mt-5'>
+            {name}
+        </h2>
 
-        <div className="mt-2 flex items-center justify-between">
-          <span className="bg-[#1abc9c] text-black py-1 px-3 text-sm font-medium rounded">
-            {specialization || "General Doctor"}
-          </span>
-          <div className="flex items-center gap-2">
-            <span className="flex items-center text-sm font-semibold text-black">
-              <img src={starIcon} alt="rating" className="w-4 h-4" />{" "}
-              {avgRating}
+        <div className="mt-2 lg:mt-4 flex items-center justify-between">
+            <span className='bg-[#ccf0f3] text-irisBlueColor py-1 px-2 lg:py-2
+            lg:px-6 text-[12px] leading-4 lg:text-[16px] lg:leading-7
+            font-semibold rounded '>
+                {specialization || 'general doctor'}
             </span>
-            <span className="text-sm text-black">({roundedTotalRating})</span>
-          </div>
+            <div className="flex items-center gap-[6px]">
+                <span className='flex items-center gap-[6px] text-[14px] leading-6
+                lg:text-[16px] lg:leading-7 font-semibold text-headingColor'>
+                    <img src={starIcon} alt=''/> {avgRating}
+                </span>
+                <span className='text-[14px] leading-6
+                lg:text-[16px] lg:leading-7 font-normal text-textColor'>
+                        ({roundedTotalRating})
+                </span>
+            </div>
         </div>
 
-        <div className="mt-3 flex items-center justify-between">
-          <p className="text-sm text-black">
-            {experiences && experiences[0]?.hospital}
-          </p>
-          <Link
-            to={`/doctors/${doctor._id}`}
-            className="w-10 h-10 rounded-full border border-solid border-[#2c3e50] flex items-center justify-center text-[#2c3e50] hover:bg-[#1abc9c] hover:text-white transition-colors duration-300"
-          >
-            <BsArrowRight className="w-5 h-5" />
-          </Link>
+        <div className="mt-[18px] lg:mt-5 flex items-center justify-between">
+            <div>
+                {/* <h3 className='text-base leading-7 lg:text-[18px]
+                lg:leading-[30px] font-semibold text-headingColor'>
+                    +{totalPatients} patiens
+                </h3> */}
+                <p className='text-sm leading-6 font-normal
+                text-textColor'>
+                    at {experiences && experiences[0]?.hospital}
+                </p>
+            </div>
+            <Link 
+                to={`/doctors/${doctor._id}`}
+                className='w-[44px] h-[44px] rounded-full border
+                border-solid border-[#181A1E]
+                flex items-center justify-center group hover:bg-primaryColor
+                hover:border-none'
+                >
+                <BsArrowRight 
+                    className='group-hover:text-white
+                    w-6 h-5'
+                />
+                </Link>
         </div>
-      </div>
     </div>
-  );
-};
+  )
+}
 
-export default DoctorCard;
+export default DoctorCard
