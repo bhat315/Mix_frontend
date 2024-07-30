@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import userImg from "../../assets/images/1.png";
+import userImg from "../../assets/images/doctor-img01.png";
 import { authContext } from "../../context/AuthContext";
 import MyBookings from "./MyBookings";
 import Profile from "./Profile";

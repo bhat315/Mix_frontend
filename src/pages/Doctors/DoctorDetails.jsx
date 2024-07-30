@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import noPhoto from "../../assets/images/no-photo.jpeg";
+import noPhoto from "../../assets/images/no-photo.jpg";
 import starIcon from "../../assets/images/Star.png";
 import DoctorAbout from "./DoctorAbout";
 import Feedback from "./Feedback";

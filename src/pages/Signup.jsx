@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import signupImg from "../assets/images/222.gif";
-import avatar from "../assets/images/1.png";
+import signupImg from "../assets/images/signup.gif";
+import avatar from "../assets/images/doctor-img01.png";
 import { Link, useNavigate } from "react-router-dom";
 import uploadImageToCloudinary from "../utils/uploadCloudinary";
 import { BASE_URL } from "../config";
@@ -70,7 +70,7 @@ const Signup = () => {
     }
   };
   return (
-    <section className="px-5 xl:px-0 my-10 signOut">
+    <section className="px-5 xl:px-0 my-10">
       <div className="max-w-[1170px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2">
           {/* img box */}
@@ -191,7 +191,7 @@ const Signup = () => {
                     name="photo"
                     onChange={handleFileInputChange}
                     id="customFile"
-                    accept=".jpg, .png,.jpeg"
+                    accept=".jpg, .png"
                     className="absolute top-0 left-0 w-full h-full opacity-0 cursor-pointer"
                   />
                   <label
