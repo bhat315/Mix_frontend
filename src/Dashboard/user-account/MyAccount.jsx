@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import userImg from "../../assets/images/1.png";
+import userImg from "../../assets/images/doctor-img01.png";
 import { authContext } from "../../context/AuthContext";
 import MyBookings from "./MyBookings";
 import Profile from "./Profile";
@@ -83,10 +83,12 @@ const MyAccount = () => {
               >
                 Logout
               </button>
-              {/* <button className='w-full bg-red-600 p-3 text-base leading-7
-                    rounded-md text-white mt-4'>
-                        Delete Account
-                    </button> */}
+              <button
+                className="w-full bg-red-600 p-3 text-base leading-7
+                    rounded-md text-white mt-4"
+              >
+                Delete Account
+              </button>
             </div>
           </div>
 

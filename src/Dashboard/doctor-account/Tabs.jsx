@@ -7,27 +7,6 @@ const Tabs = ({ tab, setTab }) => {
   const { dispatch } = useContext(authContext);
   const navigate = useNavigate();
 
-  // Function to delete a specific cookie by name
-  const deleteCookie = (name) => {
-    document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
-  };
-
-  // const handleLogout = () => {
-  //   // Delete intercom session cookie
-  //   deleteCookie("intercom-session-avmr5b6h");
-
-  //   // Remove items from localStorage
-  //   localStorage.removeItem("token");
-  //   localStorage.removeItem("role");
-  //   localStorage.removeItem("user");
-
-  //   // Dispatch logout action
-  //   dispatch({ type: "LOGOUT" });
-
-  //   // Navigate to home page
-  //   navigate("/");
-  // };
-
   const handleLogout = () => {
     dispatch({ type: "LOGOUT" });
     navigate("/");
@@ -80,10 +59,12 @@ const Tabs = ({ tab, setTab }) => {
           >
             Logout
           </button>
-          {/* <button className='w-full bg-red-600 p-3 text-base leading-7
-                    rounded-md text-white mt-4'>
-                        Delete Account
-                    </button> */}
+          <button
+            className="w-full bg-red-600 p-3 text-base leading-7
+                    rounded-md text-white mt-4"
+          >
+            Delete Account
+          </button>
         </div>
       </div>
     </div>

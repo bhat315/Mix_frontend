@@ -4,7 +4,7 @@ import { formateDate } from "../../utils/formateDate";
 const Appointments = ({ appointments }) => {
   return (
     <table
-      className="w-full text-left 
+      className="w-full text-left
     text-sm text-gray-500"
     >
       <thead
