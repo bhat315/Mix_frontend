@@ -26,12 +26,30 @@
     }
 
     .header {
-        @apply bg-[url('./assets/images/mask.png')] bg-no-repeat bg-center bg-cover w-full h-[100px] leading-[100px]
+        @apply  bg-no-repeat bg-center bg-cover w-full h-[100px] leading-[100px]
     }
 
     .hero__section {
         @apply bg-[url('./assets/images/hero-bg.png')] bg-no-repeat bg-center bg-cover h-auto pb-16
     }
+
+    .test {
+        @apply bg-[url('./assets/images/22.png')]  bg-no-repeat bg-left object-contain rounded-md mb-4
+    }
+
+    .doc {
+        @apply bg-[url('./assets/images/hero-bg.png')]  bg-no-repeat bg-left object-contain rounded-md mb-4
+    }
+
+    .review{
+        @apply bg-[url('./assets/images/hero-bg.png')] bg-no-repeat bg-center bg-cover h-auto pb-16
+    }
+    .login{
+        @apply bg-[url('./assets/images/111.jpeg')] bg-no-repeat bg-center  
+    }
+    /* .signOut{
+        @apply bg-[url('./assets/images/333.jpeg')] bg-no-repeat bg-left
+    } */
 
     .form__label { 
         @apply text-textColor font-semibold text-base leading-7 mb-2
@@ -52,6 +70,7 @@
     section {
         @apply py-[35px] 
     }
+
 }
 
 @media only screen and (max-width: 768px) {
