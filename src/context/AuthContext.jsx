@@ -1,66 +1,63 @@
-import { createContext, useEffect, useReducer } from "react"
+import { createContext, useEffect, useReducer } from "react";
 
 const initialState = {
-    user: localStorage.getItem('user') !== undefined ? JSON.parse(localStorage.getItem('user')) : null,
-    role: localStorage.getItem('role') || null,
-    token: localStorage.getItem('token') || null
-  };
-  
+  user:
+    localStorage.getItem("user") !== undefined
+      ? JSON.parse(localStorage.getItem("user"))
+      : null,
+  role: localStorage.getItem("role") || null,
+  token: localStorage.getItem("token") || null,
+};
 
 export const authContext = createContext(initialState);
 
 const authReducer = (state, action) => {
+  switch (action.type) {
+    case "LOGIN_START":
+      return {
+        user: null,
+        role: null,
+        token: null,
+      };
 
-    switch (action.type) {
-        case 'LOGIN_START':
+    case "LOGIN_SUCCESS":
+      return {
+        user: action.payload.user,
+        role: action.payload.role,
+        token: action.payload.token,
+      };
 
-        return {
-            user: null,
-            role: null,
-            token: null
-        }
+    case "LOGOUT":
+      return {
+        user: null,
+        role: null,
+        token: null,
+      };
 
-        case 'LOGIN_SUCCESS':
+    default:
+      return state;
+  }
+};
 
-        return {
-            user: action.payload.user,
-            role: action.payload.role,
-            token: action.payload.token
-        }
+export const AuthContextProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(authReducer, initialState);
 
-        case 'LOGOUT':
+  useEffect(() => {
+    localStorage.setItem("user", JSON.stringify(state.user));
+    localStorage.setItem("role", state.role);
+    localStorage.setItem("token", state.token);
+  }, [state]);
 
-        return {
-            user: null,
-            role: null,
-            token: null
-        }
-
-        default:
-            return state;
-    }
-}
-
-export const AuthContextProvider = ({children}) => {
-    const [state, dispatch] = useReducer(authReducer, initialState);
-
-    useEffect(() => {
-        localStorage.setItem('user', JSON.stringify(state.user))
-        localStorage.setItem('role', state.role)
-        localStorage.setItem('token', state.token)
-    }, [state])
-
-    return (
-        <authContext.Provider 
-            value={{
-            user: state.user,
-            token: state.token,
-            role: state.role,
-            dispatch
-            }}
-        >
-            {children}
-        </authContext.Provider>
-    )
-
-}
+  return (
+    <authContext.Provider
+      value={{
+        user: state.user,
+        token: state.token,
+        role: state.role,
+        dispatch,
+      }}
+    >
+      {children}
+    </authContext.Provider>
+  );
+};
