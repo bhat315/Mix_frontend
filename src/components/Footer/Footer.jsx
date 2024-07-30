@@ -1,180 +1,85 @@
-import React from 'react'
-import logo from '../../assets/images/logo.png'
-import { RiLinkedinFill} from 'react-icons/ri'
-import { AiFillYoutube, AiFillGithub, AiOutlineInstagram } from 'react-icons/ai'
-import { Link } from 'react-router-dom'
+import React from "react";
+// import logo from "../../assets/images/22.png";
+import { RiLinkedinFill } from "react-icons/ri";
+import { AiFillGithub, AiOutlineInstagram } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const socialLinks = [
   {
-    path:'youtube.com',
-    icon: <AiFillYoutube className='group-hover:display-white w-4 h-5'/>
+    path: "https://www.instagram.com/",
+    icon: <AiOutlineInstagram className="group-hover:text-white w-5 h-5" />,
   },
   {
-    path:'https://github.com/aldoprogrammer',
-    icon: <AiFillGithub className='group-hover:display-white w-4 h-5'/>
+    path: "https://github.com/bhat315",
+    icon: <AiFillGithub className="group-hover:text-white w-5 h-5" />,
   },
   {
-    path:'youtube.com',
-    icon: <AiFillYoutube className='group-hover:display-white w-4 h-5'/>
+    path: "https://www.linkedin.com/in/praveenbhat315/",
+    icon: <RiLinkedinFill className="group-hover:text-white w-5 h-5" />,
   },
-  {
-    path:'https://www.linkedin.com/in/aldo-lata-soba-841233172/',
-    icon: <RiLinkedinFill className='group-hover:display-white w-4 h-5'/>
-  },
-]
+];
 
 const quickLinks01 = [
   {
-    path:'/home',
-    display: 'Home'
+    path: "/home",
+    display: "Home",
   },
   {
-    path:'/',
-    display: 'About'
+    path: "/services",
+    display: "Services",
   },
   {
-    path:'/services',
-    display: 'Services'
+    path: "/contact",
+    display: "Contact Us",
   },
   {
-    path:'/',
-    display: 'Blog'
+    path: "/doctors",
+    display: "Find a Doctor",
   },
-]
-
-const quickLinks02 = [
-  {
-    path:'/find-a-doctor',
-    display: 'Find a Doctor'
-  },
-  {
-    path:'/',
-    display: 'Request an Appointment'
-  },
-  {
-    path:'/',
-    display: 'Location'
-  },
-  {
-    path:'/',
-    display: 'Get an Opinion'
-  },
-]
-
-const quickLinks03 = [
-  {
-    path:'/',
-    display: 'Donate'
-  },
-  {
-    path:'/contact',
-    display: 'Contact Us'
-  },
-  
-]
+];
 
 const Footer = () => {
   const year = new Date().getFullYear();
 
   return (
-    <footer>
-      <div className="container px-10">
-        <div className="flex justify-between flex-col
-        md:flex-row flex-wrap gap-[30px]">
-          <div>
-            <img src={logo} alt="" />
-            <p className='text-base leading-7 font-normal
-            text-textColor mt-4'>
-              Copyright {year} developed by Aldo L.S.
-            </p>
-
-            <div className="flex gap-2 mt-4">
-              {socialLinks.map((link, index) => {
-                return (
-                  <Link
-                    to={link.path}
-                    key={index}
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    className="w-9 h-9 border border-solid
-                    border-[#181a1e] rounded-full justify-center group
-                    hover:bg-irisBlueColor hover:border-none 
-                    flex items-center"
-                  >
-                    {link.icon}
-                  </Link>
-                )
-              })}
-            </div>
+    <footer className=" test py-10">
+      <div className="container mx-auto px-10 flex justify-between items-start">
+        <div className="flex-shrink-0">
+          {/* <img src={logo} alt="Logo" className="h-48" /> */}
+        </div>
+        <div className="flex flex-col items-end text-right">
+          <p className="text-base mb-4">
+            &copy; {year} Developed by Praveen Bhat
+          </p>
+          <ul className="flex flex-wrap gap-6 mb-4">
+            {quickLinks01.map((item, index) => (
+              <li key={index}>
+                <Link
+                  to={item.path}
+                  className="text-base hover:text-orange-400 transition duration-300"
+                >
+                  {item.display}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <div className="flex gap-4">
+            {socialLinks.map((link, index) => (
+              <Link
+                to={link.path}
+                key={index}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 border border-solid border-gray-600 rounded-full flex justify-center items-center group hover:bg-blue-500 transition duration-300"
+              >
+                {link.icon}
+              </Link>
+            ))}
           </div>
-          
-          <div>
-              <h2 className='text-xl leading-[30px] font-normal
-              mb-6 text-headingColor'>
-                Quick Links
-              </h2>
-
-              <ul>
-                {quickLinks01.map((item, index) => (
-                  <li key={index} className='mb-4'>
-                    <Link
-                      to={item.path}
-                      className='text-base leading-7 font-normal
-                      text-textColor'
-                    >
-                      {item.display}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-          </div>
-
-          <div>
-              <h2 className='text-xl leading-[30px] font-normal
-              mb-6 text-headingColor'>
-                I Want To:
-              </h2>
-
-              <ul>
-                {quickLinks02.map((item, index) => (
-                  <li key={index} className='mb-4'>
-                    <Link
-                      to={item.path}
-                      className='text-base leading-7 font-normal
-                      text-textColor'
-                    >
-                      {item.display}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-          </div>
-
-          <div>
-              <h2 className='text-xl leading-[30px] font-normal
-              mb-6 text-headingColor'>
-                Support
-              </h2>
-
-              <ul>
-                {quickLinks03.map((item, index) => (
-                  <li key={index} className='mb-4'>
-                    <Link
-                      to={item.path}
-                      className='text-base leading-7 font-normal
-                      text-textColor'
-                    >
-                      {item.display}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-          </div>
-
         </div>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
